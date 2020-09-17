@@ -6,21 +6,111 @@ HTMLWidgets.widget({
 
   factory: function(el, width, height) {
 
-    // TODO: define shared variables for this instance
 
     return {
 
-      renderValue: function(x) {
-        // TODO: code to render the widget, e.g.
-        const stringToDate = d3.timeParse("%Y-%m-%d");
+   renderValue: function(x) {
 
-        const rvalues = x.data.value;
-        const rdates = x.data.date;
+    const stringToDate = d3.timeParse("%Y-%m-%d");
+    const rvalues = x.data.value;
+    const rdates = x.data.date;
+    const rdataarray = rdates.map(
+      function (x, i) {
+        return { date: stringToDate(x), value: rvalues[i] }
+      });
 
-        const rdataarray = rdates.map(
-          function (x, i) {
-            return { date: stringToDate(x), value: rvalues[i] }
-          });
+    var chosen_year = 2020;
+
+   const colorScale = d3.scaleOrdinal()
+  .domain(d3.extent(rdataarray, d => d.value))
+  .range(["#9BE9A8", "#3FC463", "#2EA14E", "#1F6E39"]);
+
+  const makeChart = () => {
+
+  const formatMonth = d3.timeFormat("%b");
+  const formatDay = d => "SMTWTFS"[d.getDay()];
+  const formatDate = d3.timeFormat("%x");
+  const format = d3.format("+.2%");
+  const countDay = d => d.getDay();
+  const timeWeek = d3.timeSunday;
+  const cellSize = 17;
+
+  const parseTime = d3.timeFormat("%b %d");
+
+      let dimensions = {
+      width: 900,
+      height: 200,
+      margin: {
+        top: 15,
+        right: 15,
+        bottom: 40,
+        left: 50,
+      },
+    };
+
+    dimensions.boundedWidth =
+      dimensions.width - dimensions.margin.left - dimensions.margin.right;
+
+    dimensions.boundedHeight =
+      dimensions.height - dimensions.margin.top - dimensions.margin.bottom;
+
+  const svg = d3.select(el)
+      .append("svg")
+      .attr(
+        "viewBox",
+        `0 0 ${
+          dimensions.width + dimensions.margin.left + dimensions.margin.right
+        } ${
+          dimensions.height + dimensions.margin.top + dimensions.margin.bottom
+        }`
+      )
+
+  var calendarData = [{key: chosen_year, values: rdataarray}];
+
+  const year = svg.selectAll("g")
+  .data(calendarData)
+  .enter().append("g")
+  .attr("class","calendar")
+  .attr("transform", (d, i) => `translate(40,${height * i + cellSize * 1.5})`);
+
+  year.append("g")
+  .attr("class","calendar")
+  .selectAll("rect")
+  .data(d => d.values)
+  .enter().append("rect")
+  .attr("width", cellSize - 1)
+  .attr("height", cellSize - 1)
+  .attr("x", d => timeWeek.count(d3.timeYear(d.date), d.date) * cellSize + 0.5)
+  .attr("y", d => countDay(d.date) * cellSize + 0.5)
+  .attr('fill', d => d.value === 0 ? "#EBEDF0" : colorScale(d.value))
+  .attr("stroke", 'white')
+  .attr("rx", 5)
+
+  // I want this to print only Mon, Wed, Fri
+  year.append("g")
+  .attr("text-anchor", "end")
+  .attr("class","calendar")
+  .selectAll("text")
+  .data((d3.range(7)).map(i => new Date(chosen_year, 0, i)))
+  .enter().append("text")
+  .attr("x", -5)
+  .attr("y", d => (countDay(d) + 0.5) * cellSize)
+  .attr("dy", "0.31em")
+  .text(formatDay);
+
+  const month = year.append("g")
+  .attr("class","calendar")
+  .selectAll("g")
+  .data(d => d3.timeMonths(d3.timeMonth(d.values[0].date), d.values[d.values.length - 1].date))
+  .enter().append("g")
+
+  month.append("text")
+  .attr("class","calendar")
+  .attr("x", d => timeWeek.count(d3.timeYear(d), timeWeek.ceil(d)) * cellSize + 2)
+  .attr("y", -5)
+  .text(formatMonth);
+};
+        makeChart()
       },
 
       resize: function(width, height) {
