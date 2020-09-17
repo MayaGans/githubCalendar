@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1600354988137.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "659440173",
+    "id" : "CB1F9AD3",
+    "lastKnownWriteTime" : 1600354988,
+    "last_content_update" : 1600354988,
+    "path" : "~/Documents/DEMOS/githubCalendar/R/githubCalendar.R",
+    "project_path" : "R/githubCalendar.R",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

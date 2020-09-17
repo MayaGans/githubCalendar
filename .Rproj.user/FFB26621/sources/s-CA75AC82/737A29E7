@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1600354988228.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1742750121",
+    "id" : "737A29E7",
+    "lastKnownWriteTime" : 1600354988,
+    "last_content_update" : 1600354988,
+    "path" : "~/Documents/DEMOS/githubCalendar/inst/htmlwidgets/githubCalendar.yaml",
+    "project_path" : "inst/htmlwidgets/githubCalendar.yaml",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "yaml"
+}
