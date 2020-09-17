@@ -11,10 +11,8 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(x) {
-
         // TODO: code to render the widget, e.g.
         el.innerText = x.message;
-
       },
 
       resize: function(width, height) {

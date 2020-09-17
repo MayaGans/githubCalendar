@@ -5,13 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "659440173",
+    "hash" : "0",
     "id" : "CB1F9AD3",
-    "lastKnownWriteTime" : 1600354988,
-    "last_content_update" : 1600354988,
+    "lastKnownWriteTime" : 1600361492,
+    "last_content_update" : 1600361492746,
     "path" : "~/Documents/DEMOS/githubCalendar/R/githubCalendar.R",
     "project_path" : "R/githubCalendar.R",
     "properties" : {
+        "cursorPosition" : "8,0",
+        "scrollLine" : "1"
     },
     "read_only" : false,
     "read_only_alternatives" : [

@@ -5,11 +5,12 @@
 #' @import htmlwidgets
 #'
 #' @export
-githubCalendar <- function(message, width = NULL, height = NULL, elementId = NULL) {
+githubCalendar <- function(dates, values, width = NULL, height = NULL, elementId = NULL) {
+
 
   # forward options using x
   x = list(
-    message = message
+    data = interpolate_dates(dates, values)
   )
 
   # create widget
