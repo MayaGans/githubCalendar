@@ -12,7 +12,15 @@ HTMLWidgets.widget({
 
       renderValue: function(x) {
         // TODO: code to render the widget, e.g.
-        el.innerText = x.message;
+        const stringToDate = d3.timeParse("%Y-%m-%d");
+
+        const rvalues = x.data.value;
+        const rdates = x.data.date;
+
+        const rdataarray = rdates.map(
+          function (x, i) {
+            return { date: stringToDate(x), value: rvalues[i] }
+          });
       },
 
       resize: function(width, height) {
