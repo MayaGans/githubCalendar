@@ -5,13 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1742750121",
+    "hash" : "0",
     "id" : "737A29E7",
-    "lastKnownWriteTime" : 1600354988,
-    "last_content_update" : 1600354988,
+    "lastKnownWriteTime" : 1600355321,
+    "last_content_update" : 1600355321618,
     "path" : "~/Documents/DEMOS/githubCalendar/inst/htmlwidgets/githubCalendar.yaml",
     "project_path" : "inst/htmlwidgets/githubCalendar.yaml",
     "properties" : {
+        "cursorPosition" : "5,0",
+        "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [
