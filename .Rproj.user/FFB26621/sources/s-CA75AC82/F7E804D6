@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1600367213978.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4286223969",
+    "id" : "F7E804D6",
+    "lastKnownWriteTime" : 1600368171,
+    "last_content_update" : 1600368306018,
+    "path" : "~/Documents/DEMOS/githubCalendar/tt/app.R",
+    "project_path" : "tt/app.R",
+    "properties" : {
+        "cursorPosition" : "18,0",
+        "scrollLine" : "17"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

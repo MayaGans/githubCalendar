@@ -1,0 +1,22 @@
+dates = lubridate::ymd(c("2020-01-01","2020-02-02", "2020-03-03",
+                     "2020-04-04","2020-05-05","2020-06-06",
+                     "2020-07-07","2020-08-08","2020-09-09",
+                     "2020-10-10","2020-11-11","2020-12-12"))
+values = c(1,2,3,4,5,6,7,8,9,10,11,12)
+
+test <- interpolate_dates(dates, values)
+
+t <- test$date
+
+toJSON(t)
+
+library(rjson)
+x <- toJSON(unname(split(test, 1:nrow(test))))
+cat(x)
+
+str(dates)
+
+toJSON(test$date)
+
+toJSON(test$date)
+
