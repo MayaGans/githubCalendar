@@ -58,6 +58,7 @@ HTMLWidgets.widget({
 
  var tooltip = d3.select("body")
     .append("div")
+    .attr("class", "calendar")
     .style("position", "absolute")
     .style("z-index", "100")
     .style("visibility", "hidden")
@@ -66,12 +67,6 @@ HTMLWidgets.widget({
     .style("opacity", 0.7)
     .style("border-radius", "5px")
     .style("padding", "10px")
-    .attr("class", "tooltip")
-
- var div = d3.select("body")
-    .append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
 
   const svg = d3.select(el)
       .append("svg")
@@ -104,18 +99,26 @@ HTMLWidgets.widget({
   .attr('fill', d => d.value === 0 ? "#EBEDF0" : colorScale(d.value))
   .attr("stroke", 'white')
   .attr("rx", 5)
-  .on('mouseover', function (d, i) {
+      .on("mouseover", function (event, d, i) {
+        d3.select(this)
+          .transition()
+          .duration("50")
+          .attr("r", 20)
+         tooltip.html(d.value + " on " + parseTime(d.date))
+        return tooltip.style("visibility", "visible");
+      })
+
+      // Setting things back to normal after tool tip
+      .on('mouseover', function (d, i) {
          tooltip.html(d.value + " on " + parseTime(d.date))
          return tooltip.style("visibility", "visible")
       })
       .on('mouseout', function (d, i) {
          return tooltip.style("visibility", "hidden")
       })
-      .on("mousemove", function(d) {
-        // why is this undefined on NaN?
-         return tooltip.html(d.value + " on " + parseTime(d.date))
-                      .style("left", (d3.event.pageX) + "px")
-                      .style("top", (d3.event.pageY - 28) + "px");
+      .on("mousemove", function( ){
+         return tooltip.style("top", (d3.event.pageY-20)+"px")
+                       .style("left",(d3.event.pageX+20)+"px");
       })
 
   // I want this to print only Mon, Wed, Fri
@@ -133,7 +136,7 @@ HTMLWidgets.widget({
   const month = year.append("g")
   .attr("class","calendar")
   .selectAll("g")
-  .data(d => d3.timeMonths(d3.timeMonth(d.values[0].date), d.values[d.values.length - 1].date))
+  .data(d => d3.timeMonths(d3.timeMonth(d.values[0].date), d      .values[d.values.length - 1].date))
   .enter().append("g")
 
   month.append("text")
