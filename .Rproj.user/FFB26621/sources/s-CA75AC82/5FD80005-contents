@@ -103,7 +103,6 @@ HTMLWidgets.widget({
         d3.select(this)
           .transition()
           .duration("50")
-          .attr("r", 20)
          tooltip.html(d.value + " on " + parseTime(d.date))
         return tooltip.style("visibility", "visible");
       })
@@ -144,6 +143,37 @@ HTMLWidgets.widget({
   .attr("x", d => timeWeek.count(d3.timeYear(d), timeWeek.ceil(d)) * cellSize + 2)
   .attr("y", -5)
   .text(formatMonth);
+
+    var colorLegendScale = d3.scaleOrdinal()
+  .domain([1,2,3,4,5])
+  .range(["#EBEDF0", "#9BE9A8", "#3FC463", "#2EA14E", "#1F6E39"]);
+
+// Add one dot in the legend for each name.
+var legendsize = 16
+
+const legend = svg.append("g")
+   .selectAll("legend")
+  .data([1,2,3,4,5])
+  .enter()
+  .append("rect")
+    .attr("x", function(d,i){ return 750 + i*(legendsize+5)})
+    .attr("y", 160)
+    .attr("width", legendsize)
+    .attr("height", legendsize)
+    .style("fill", function(d){ return colorLegendScale(d)})
+    .attr("rx", 5)
+
+  svg.append("text")
+    .attr("x", 705)
+    .attr("y", 173)
+    .attr("fill", "black")
+    .html("Less")
+
+    svg.append("text")
+    .attr("x", 865)
+    .attr("y", 173)
+    .attr("fill", "black")
+    .html("More")
 };
         makeChart()
       },
