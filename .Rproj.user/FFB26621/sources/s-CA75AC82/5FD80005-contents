@@ -130,7 +130,8 @@ HTMLWidgets.widget({
   .attr("x", -5)
   .attr("y", d => (countDay(d) + 0.5) * cellSize)
   .attr("dy", "0.31em")
-  .text(formatDay);
+  .text(formatDay)
+  //.attr("fill", d => (countDay(d) % 2 ? "black" : "white"))
 
   const month = year.append("g")
   .attr("class","calendar")
