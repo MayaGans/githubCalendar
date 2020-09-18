@@ -109,16 +109,16 @@ HTMLWidgets.widget({
       })
 
       // Setting things back to normal after tool tip
-      .on('mouseover', function (d, i) {
+      .on('mouseover', function (event, d) {
          tooltip.html(d.value + " on " + parseTime(d.date))
          return tooltip.style("visibility", "visible")
       })
-      .on('mouseout', function (d, i) {
+      .on('mouseout', function (event, d) {
          return tooltip.style("visibility", "hidden")
       })
-      .on("mousemove", function( ){
-         return tooltip.style("top", (d3.event.pageY-20)+"px")
-                       .style("left",(d3.event.pageX+20)+"px");
+      .on("mousemove", function(event){
+         return tooltip.style("top", (event.pageY-20)+"px")
+                       .style("left",(event.pageX+20)+"px");
       })
 
   // I want this to print only Mon, Wed, Fri
@@ -150,7 +150,7 @@ HTMLWidgets.widget({
 
       resize: function(width, height) {
 
-        // TODO: code to re-render the widget with a new size
+       controller.resizeUpdate();
 
       }
 

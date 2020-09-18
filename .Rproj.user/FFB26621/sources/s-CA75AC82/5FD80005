@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "5FD80005",
-    "lastKnownWriteTime" : 1600464226,
-    "last_content_update" : 1600464226733,
+    "lastKnownWriteTime" : 1600464742,
+    "last_content_update" : 1600464742452,
     "path" : "~/Documents/DEMOS/githubCalendar/inst/htmlwidgets/githubCalendar.js",
     "project_path" : "inst/htmlwidgets/githubCalendar.js",
     "properties" : {
-        "cursorPosition" : "122,0",
-        "scrollLine" : "109"
+        "cursorPosition" : "151,0",
+        "scrollLine" : "142"
     },
     "read_only" : false,
     "read_only_alternatives" : [
