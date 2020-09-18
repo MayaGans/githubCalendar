@@ -4,7 +4,7 @@
 \alias{interpolate_dates}
 \title{Interpolate Missing Dates}
 \usage{
-interpolate_dates(dates, values)
+interpolate_dates(date, value)
 }
 \arguments{
 \item{dates}{a vector of dates, must be only one year}

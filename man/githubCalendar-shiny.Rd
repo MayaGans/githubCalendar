@@ -6,7 +6,7 @@
 \alias{renderGithubCalendar}
 \title{Shiny bindings for githubCalendar}
 \usage{
-githubCalendarOutput(outputId, width = "100\%", height = "400px")
+githubCalendarOutput(outputId, width = "90\%", height = "400px")
 
 renderGithubCalendar(expr, env = parent.frame(), quoted = FALSE)
 }

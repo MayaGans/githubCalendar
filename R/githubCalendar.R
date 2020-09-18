@@ -41,7 +41,18 @@ githubCalendar <- function(dates, values, width = NULL, height = NULL, elementId
 #' @name githubCalendar-shiny
 #'
 #' @export
-githubCalendarOutput <- function(outputId, width = '100%', height = '400px'){
+#'
+#' @example
+#' dates = as.Date(c(
+#' "2020-01-01",
+#' "2020-01-02",
+#' "2020-03-01",
+#' "2020-04-04",
+#' "2020-05-05"))
+#' values = c(1,2,3,4,5,6,7,8,9,10,11,12)
+#' githubCalendar(dates = dates, values = values)
+#'
+githubCalendarOutput <- function(outputId, width = '90%', height = '400px'){
   htmlwidgets::shinyWidgetOutput(outputId, 'githubCalendar', width, height, package = 'githubCalendar')
 }
 

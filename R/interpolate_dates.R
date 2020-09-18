@@ -9,10 +9,14 @@
 #' @return a dataframe with dates and values
 #'
 interpolate_dates <- function(date, value) {
-  missingDates <- unique(lubridate::year(date)) %>%
+  missingDates <- unique(lubridate::year(dates)) %>%
     purrr::map(function(d) {
       seq(lubridate::make_date(d, 1, 1), lubridate::make_date(d, 12, 31), by='day')
-    }) %>% unlist() %>% setdiff(date) %>% lubridate::as_date()
+    }) %>% unlist() %>%
+    lubridate::as_date() %>%
+    setdiff(date) %>%
+    lubridate::as_date()
+
   dplyr::bind_rows(tidyr::tibble(date, value),
                    tidyr::tibble(date=missingDates, value=0)) %>%
   dplyr::mutate(date = as.character(date))

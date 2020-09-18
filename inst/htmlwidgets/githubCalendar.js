@@ -19,13 +19,14 @@ HTMLWidgets.widget({
         return { date: stringToDate(x), value: rvalues[i] }
       });
 
-    var chosen_year = 2020;
-
-   const colorScale = d3.scaleOrdinal()
-  .domain(d3.extent(rdataarray, d => d.value))
-  .range(["#9BE9A8", "#3FC463", "#2EA14E", "#1F6E39"]);
+  // need to get the year from x.data.value string
+  var chosen_year = 2020;
 
   const makeChart = () => {
+
+  const colorScale = d3.scaleOrdinal()
+  .domain(d3.extent(rdataarray, d => d.value))
+  .range(["#9BE9A8", "#3FC463", "#2EA14E", "#1F6E39"]);
 
   const formatMonth = d3.timeFormat("%b");
   const formatDay = d => "SMTWTFS"[d.getDay()];
@@ -53,6 +54,24 @@ HTMLWidgets.widget({
 
     dimensions.boundedHeight =
       dimensions.height - dimensions.margin.top - dimensions.margin.bottom;
+
+
+ var tooltip = d3.select("body")
+    .append("div")
+    .style("position", "absolute")
+    .style("z-index", "100")
+    .style("visibility", "hidden")
+    .style("color", "white")
+    .style("background-color", "black")
+    .style("opacity", 0.7)
+    .style("border-radius", "5px")
+    .style("padding", "10px")
+    .attr("class", "tooltip")
+
+ var div = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
   const svg = d3.select(el)
       .append("svg")
@@ -85,6 +104,19 @@ HTMLWidgets.widget({
   .attr('fill', d => d.value === 0 ? "#EBEDF0" : colorScale(d.value))
   .attr("stroke", 'white')
   .attr("rx", 5)
+  .on('mouseover', function (d, i) {
+         tooltip.html(d.value + " on " + parseTime(d.date))
+         return tooltip.style("visibility", "visible")
+      })
+      .on('mouseout', function (d, i) {
+         return tooltip.style("visibility", "hidden")
+      })
+      .on("mousemove", function(d) {
+        // why is this undefined on NaN?
+         return tooltip.html(d.value + " on " + parseTime(d.date))
+                      .style("left", (d3.event.pageX) + "px")
+                      .style("top", (d3.event.pageY - 28) + "px");
+      })
 
   // I want this to print only Mon, Wed, Fri
   year.append("g")
