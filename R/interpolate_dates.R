@@ -19,6 +19,7 @@ interpolate_dates <- function(date, value) {
 
   dplyr::bind_rows(tidyr::tibble(date, value),
                    tidyr::tibble(date=missingDates, value=0)) %>%
+    dplyr::arrange(date) %>%
   dplyr::mutate(date = as.character(date))
 }
 

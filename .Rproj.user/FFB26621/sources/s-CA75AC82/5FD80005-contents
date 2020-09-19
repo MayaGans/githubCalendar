@@ -19,7 +19,9 @@ HTMLWidgets.widget({
         return { date: stringToDate(x), value: rvalues[i] }
       });
   // need to get the year from x.data.value string
-  var chosen_year = parseInt(x.data.date[0].substring(0,4));
+  var chosen_year = x.data.date[0].substring(0,4);
+
+  console.log(rdataarray)
 
   const makeChart = () => {
 
@@ -135,14 +137,14 @@ HTMLWidgets.widget({
   const month = year.append("g")
   .attr("class","calendar")
   .selectAll("g")
-  .data(d => d3.timeMonths(d3.timeMonth(d.values[0].date), d      .values[d.values.length - 1].date))
+  .data(d => d3.timeMonths(d3.timeMonth(d.values[0].date), d.values[d.values.length - 1].date))
   .enter().append("g")
 
   month.append("text")
   .attr("class","calendar")
   .attr("x", d => timeWeek.count(d3.timeYear(d), timeWeek.ceil(d)) * cellSize + 2)
   .attr("y", -5)
-  .text(formatMonth);
+  .text(formatMonth)
 
     var colorLegendScale = d3.scaleOrdinal()
   .domain([1,2,3,4,5])
