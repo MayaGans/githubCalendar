@@ -2,20 +2,29 @@
 % Please edit documentation in R/githubCalendar.R
 \name{githubCalendar-shiny}
 \alias{githubCalendar-shiny}
+\alias{githubCalendar}
 \alias{githubCalendarOutput}
 \alias{renderGithubCalendar}
-\title{Shiny bindings for githubCalendar}
+\title{A github inspired calendar visualization}
 \usage{
-githubCalendarOutput(outputId, width = "90\%", height = "400px")
+githubCalendar(dates, values, width = "100\%", height = NULL, elementId = NULL)
+
+githubCalendarOutput(outputId, width = "100\%", height = "400px")
 
 renderGithubCalendar(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
-\item{outputId}{output variable to read from}
+\item{dates}{the dates to plot on the calendar, must all be in the same year}
+
+\item{values}{the values associated with each date}
 
 \item{width, height}{Must be a valid CSS unit (like \code{'100\%'},
 \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
 string and have \code{'px'} appended.}
+
+\item{elementId}{output variable to read from}
+
+\item{outputId}{output variable to read from}
 
 \item{expr}{An expression that generates a githubCalendar}
 

@@ -18,9 +18,8 @@ HTMLWidgets.widget({
       function (x, i) {
         return { date: stringToDate(x), value: rvalues[i] }
       });
-
   // need to get the year from x.data.value string
-  var chosen_year = 2020;
+  var chosen_year = parseInt(x.data.date[0].substring(0,4));
 
   const makeChart = () => {
 
@@ -180,8 +179,6 @@ const legend = svg.append("g")
       },
 
       resize: function(width, height) {
-
-       controller.resizeUpdate();
 
       }
 

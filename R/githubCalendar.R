@@ -1,11 +1,35 @@
-#' <Add Title>
+#' A github inspired calendar visualization
 #'
-#' <Add Description>
+#' @param dates the dates to plot on the calendar, must all be in the same year
+#' @param values the values associated with each date
+#' @param elementId output variable to read from
+#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
+#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
+#'   string and have \code{'px'} appended.
 #'
-#' @import htmlwidgets
+#' @name githubCalendar-shiny
 #'
 #' @export
+#'
+#' @example
+#' dates = as.Date(c(
+#' "2020-01-01",
+#' "2020-01-02",
+#' "2020-03-01",
+#' "2020-04-04",
+#' "2020-05-05"))
+#' values = c(1,2,3,4,5,6,7,8,9,10,11,12)
+#' githubCalendar(dates = dates, values = values)
+#'
 githubCalendar <- function(dates, values, width = "100%", height = NULL, elementId = NULL) {
+
+  if (!lubridate::is.Date(dates)) {
+    stop("dates argument must be of type Date")
+  }
+
+  if (length(unique(lubridate::year(dates))) != 1) {
+    stop("githubCalendar can only be create for a single year")
+  }
 
 
   # forward options using x
@@ -52,7 +76,7 @@ githubCalendar <- function(dates, values, width = "100%", height = NULL, element
 #' values = c(1,2,3,4,5,6,7,8,9,10,11,12)
 #' githubCalendar(dates = dates, values = values)
 #'
-githubCalendarOutput <- function(outputId, width = '90%', height = '400px'){
+githubCalendarOutput <- function(outputId, width = '100%', height = '400px'){
   htmlwidgets::shinyWidgetOutput(outputId, 'githubCalendar', width, height, package = 'githubCalendar')
 }
 
