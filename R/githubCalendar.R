@@ -44,7 +44,12 @@ githubCalendar <- function(dates, values, width = "100%", height = NULL, element
     width = width,
     height = height,
     package = 'githubCalendar',
-    elementId = elementId
+    elementId = elementId,
+    sizingPolicy = htmlwidgets::sizingPolicy(
+      padding = 15,
+      browser.fill = TRUE,
+      defaultWidth = "100%"
+    )
   )
 }
 
@@ -82,7 +87,7 @@ githubCalendarOutput <- function(outputId, width = '100%', height = '400px'){
 
 #' @rdname githubCalendar-shiny
 #' @export
-renderGithubCalendar <- function(expr, env = parent.frame(), quoted = FALSE) {
+renderGithubCalendar <- function(dates, values, expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, githubCalendarOutput, env, quoted = TRUE)
 }
