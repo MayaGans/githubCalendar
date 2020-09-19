@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-githubCalendar <- function(dates, values, width = NULL, height = NULL, elementId = NULL) {
+githubCalendar <- function(dates, values, width = "100%", height = NULL, elementId = NULL) {
 
 
   # forward options using x
