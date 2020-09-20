@@ -3,3 +3,8 @@ dependencies:
     version: 6.1.1
     src: htmlwidgets/d3
     script: d3.min.js
+  - name: githubCalendar
+    version: 1.0.0
+    src: htmlwidgets
+    script: js/makeChart.js
+    stylesheet: css/styles.css

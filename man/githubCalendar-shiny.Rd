@@ -11,7 +11,7 @@ githubCalendar(dates, values, width = "100\%", height = NULL, elementId = NULL)
 
 githubCalendarOutput(outputId, width = "100\%", height = "400px")
 
-renderGithubCalendar(expr, env = parent.frame(), quoted = FALSE)
+renderGithubCalendar(dates, values, expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
 \item{dates}{the dates to plot on the calendar, must all be in the same year}
