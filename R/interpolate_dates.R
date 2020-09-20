@@ -9,7 +9,7 @@
 #' @return a dataframe with dates and values
 #'
 interpolate_dates <- function(date, value) {
-  missingDates <- unique(lubridate::year(dates)) %>%
+  missingDates <- unique(lubridate::year(date)) %>%
     purrr::map(function(d) {
       seq(lubridate::make_date(d, 1, 1), lubridate::make_date(d, 12, 31), by='day')
     }) %>% unlist() %>%

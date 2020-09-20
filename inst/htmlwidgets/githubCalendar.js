@@ -6,7 +6,7 @@ HTMLWidgets.widget({
 
   factory: function(el, width, height) {
 
-
+if (el.length > 0) div[0].innerHTML = "";
     return {
 
    renderValue: function(x) {
@@ -20,6 +20,8 @@ HTMLWidgets.widget({
       });
   // need to get the year from x.data.value string
   var chosen_year = x.data.date[0].substring(0,4);
+
+       if (el.length > 0) div[0].innerHTML = "";
 
         makeChart(rdataarray, el, chosen_year, height)
       },

@@ -77,7 +77,7 @@ githubCalendarOutput <- function(outputId, width = '100%', height = '400px'){
 
 #' @rdname githubCalendar-shiny
 #' @export
-renderGithubCalendar <- function(dates, values, expr, env = parent.frame(), quoted = FALSE) {
+renderGithubCalendar <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, githubCalendarOutput, env, quoted = TRUE)
 }

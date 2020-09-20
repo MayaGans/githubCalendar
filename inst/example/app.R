@@ -26,10 +26,15 @@ ui <- fluidPage(
 
 server <- function(input, output) {
     data <- reactive({
-        githubData %>% dplyr::filter(lubridate::year(all_dates) %in% input$year)
+        githubData %>%
+            dplyr::filter(lubridate::year(all_dates) %in% input$year)
     })
 
-    output$calendar <- renderGithubCalendar(dates = data$dates(), values = data$values())
+    # this renders, but when the input changes
+    # the data doesn't update, it appends another graph
+    output$calendar <- renderGithubCalendar({
+        githubCalendar(dates = data()$all_dates, values = data()$all_values)
+    })
 }
 
 # Run the application

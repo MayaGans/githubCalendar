@@ -107,7 +107,7 @@ const makeChart = (rdataarray, el, chosen_year, height) => {
   .attr("y", d => (countDay(d) + 0.5) * cellSize)
   .attr("dy", "0.31em")
   .text(formatDay)
-  //.attr("fill", d => (countDay(d) % 2 ? "black" : "white"))
+  .attr("fill", d => (countDay(d) % 2 ? "black" : "white"))
 
   const month = year.append("g")
   .attr("class","calendar")
@@ -120,6 +120,7 @@ const makeChart = (rdataarray, el, chosen_year, height) => {
   .attr("x", d => timeWeek.count(d3.timeYear(d), timeWeek.ceil(d)) * cellSize + 2)
   .attr("y", -5)
   .text(formatMonth)
+  .attr("fill", d => (d3.timeYear(d) ? console.log(d3.timeMonths(d3.timeMonth(d))) : "white"))
 
     var colorLegendScale = d3.scaleOrdinal()
   .domain([1,2,3,4,5])
