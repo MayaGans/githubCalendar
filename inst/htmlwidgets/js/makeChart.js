@@ -63,7 +63,7 @@ const makeChart = (rdataarray, el, chosen_year, height, svg) => {
 
   const year = svg.selectAll("g")
     .data(calendarData)
-    .enter().append("g")
+    .join("g")
     .attr("class","calendar")
     .attr("transform", (d, i) => `translate(40,${height * i + cellSize * 1.5})`);
 
@@ -71,7 +71,7 @@ const makeChart = (rdataarray, el, chosen_year, height, svg) => {
     .attr("class","calendar")
     .selectAll("rect")
     .data(d => d.values)
-    .enter().append("rect")
+    .join("rect")
     .attr("width", cellSize - 1)
     .attr("height", cellSize - 1)
     .attr("x", d => timeWeek.count(d3.timeYear(d.date), d.date) * cellSize + 0.5)
@@ -124,7 +124,7 @@ const makeChart = (rdataarray, el, chosen_year, height, svg) => {
     .attr("x", d => timeWeek.count(d3.timeYear(d), timeWeek.ceil(d)) * cellSize + 2)
     .attr("y", -5)
     .text(formatMonth)
-    .attr("fill", d => (d3.timeYear(d) ? console.log(d3.timeMonths(d3.timeMonth(d))) : "white"))
+    .attr("fill", d => (d3.timeYear(d) ? "black" : "white"))
 
   var colorLegendScale = d3.scaleOrdinal()
     .domain([1,2,3,4,5])
