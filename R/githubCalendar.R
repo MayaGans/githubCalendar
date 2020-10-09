@@ -53,6 +53,8 @@ githubCalendar <- function(dates, values, width = "100%", height = NULL, element
   )
 }
 
+
+
 #' Shiny bindings for githubCalendar
 #'
 #' Output and render functions for using githubCalendar within Shiny

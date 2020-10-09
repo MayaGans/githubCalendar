@@ -96,7 +96,6 @@ const makeChart = (rdataarray, el, chosen_year, height) => {
                        .style("left",(event.pageX+20)+"px");
       })
 
-  // I want this to print only Mon, Wed, Fri
   year.append("g")
   .attr("text-anchor", "end")
   .attr("class","calendar")
