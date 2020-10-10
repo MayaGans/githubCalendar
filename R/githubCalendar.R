@@ -11,14 +11,9 @@
 #'
 #' @export
 #'
-#' @example
-#' dates = as.Date(c(
-#' "2020-01-01",
-#' "2020-01-02",
-#' "2020-03-01",
-#' "2020-04-04",
-#' "2020-05-05"))
-#' values = c(1,2,3,4,5,6,7,8,9,10,11,12)
+#' @examples
+#' dates <- sample(seq(as.Date('2020-01-01'), as.Date('2020-12-31'), by="day"), 50)
+#' values <- abs(round(rnorm(50, 100, 100), 0))
 #' githubCalendar(dates = dates, values = values)
 #'
 githubCalendar <- function(dates, values, width = "100%", height = NULL, elementId = NULL) {

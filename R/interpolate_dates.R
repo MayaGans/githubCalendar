@@ -3,8 +3,8 @@
 #' Create a table of dates and associated values
 #' then add missing dates to table with a value of 0
 #'
-#' @param dates a vector of dates, must be only one year
-#' @param values a vector of values for dates
+#' @param date a vector of dates, must be only one year
+#' @param value a vector of values for dates
 #'
 #' @return a dataframe with dates and values
 #'

@@ -7,9 +7,9 @@
 interpolate_dates(date, value)
 }
 \arguments{
-\item{dates}{a vector of dates, must be only one year}
+\item{date}{a vector of dates, must be only one year}
 
-\item{values}{a vector of values for dates}
+\item{value}{a vector of values for dates}
 }
 \value{
 a dataframe with dates and values

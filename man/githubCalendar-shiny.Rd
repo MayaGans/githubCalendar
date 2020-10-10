@@ -11,7 +11,7 @@ githubCalendar(dates, values, width = "100\%", height = NULL, elementId = NULL)
 
 githubCalendarOutput(outputId, width = "100\%", height = "400px")
 
-renderGithubCalendar(dates, values, expr, env = parent.frame(), quoted = FALSE)
+renderGithubCalendar(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
 \item{dates}{the dates to plot on the calendar, must all be in the same year}
@@ -36,4 +36,10 @@ is useful if you want to save an expression in a variable.}
 \description{
 Output and render functions for using githubCalendar within Shiny
 applications and interactive Rmd documents.
+}
+\examples{
+dates <- sample(seq(as.Date('2020-01-01'), as.Date('2020-12-31'), by="day"), 50)
+values <- abs(round(rnorm(50, 100, 100), 0))
+githubCalendar(dates = dates, values = values)
+
 }
