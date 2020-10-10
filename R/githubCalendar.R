@@ -27,7 +27,11 @@ githubCalendar <- function(dates, values, width = "100%", height = NULL, element
     stop("dates argument must be of type Date")
   }
 
-  if (length(unique(lubridate::year(dates))) != 1) {
+  if (length(unique(lubridate::year(dates))) < 1) {
+    stop("githubCalendar cannot be created without data")
+  }
+
+  if (length(unique(lubridate::year(dates))) > 1) {
     stop("githubCalendar can only be create for a single year")
   }
 
