@@ -17,7 +17,7 @@ githubCalendar(dates = dates, values = values)
 
 ```
 
-![](readme.png)
+![](inst/img/readme.png)
 
 ## Add a dynamic Calendar to your shiny app
 
@@ -57,6 +57,6 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-![](readme.gif)
+![](inst/img/readme.gif)
 
 
